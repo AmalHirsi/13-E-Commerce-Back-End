@@ -6,7 +6,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   try {
-    const productData = await Product.findByPk(req.params.id, {
+    const ProductData = await Product.findByPk(req.params.id, {
       // JOIN with travellers, using the Trip through table
       include: [
         { model: Category },
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       ]
       ,
     });
-    res.status(200).json(locationData);
+    res.status(200).json(ProductData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 // get one product
 router.get('/id', async (req, res) => {
   try {
-    const productData = await Product.findByPk(req.params.id, {
+    const ProductData = await Product.findByPk(req.params.id, {
       // JOIN with travellers, using the Trip through table
       include: [
         { model: Category },
@@ -30,7 +30,7 @@ router.get('/id', async (req, res) => {
       ]
       ,
     });
-    res.status(200).json(locationData);
+    res.status(200).json(ProductData);
   } catch (err) {
     res.status(500).json(err);
   }
